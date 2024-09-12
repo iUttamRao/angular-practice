@@ -1,0 +1,27 @@
+<style>
+  .input-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 22.5px; 
+}
+
+.input {
+  width: 100%; 
+  padding: 5px;
+  max-width: 600px;
+  box-sizing: border-box;
+  font-size: 20px; 
+  background-color: black;
+  color: rgb(236, 200, 255);
+  border: none;
+  border-radius: 15px; 
+}
+
+</style>
+
+
+<h1 style="text-align: center;margin-top: 10px;">List of Products</h1>
+<div class="input-container">
+  <input class="input" type="text" placeholder="Search the product" [(ngModel)]="searchText" /> 
+</div>
+<app-product [productList]="productList | filter : searchText"></app-product>

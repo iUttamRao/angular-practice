@@ -1,0 +1,66 @@
+<style>
+  .container{
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .card{
+    width:22%; 
+    margin: 1%; 
+    background-color: rgb(236, 200, 255); 
+    border-radius: 30px;
+  }
+  .image{
+    border-radius: 30px 30px 0 0; 
+    width: 100%; 
+    height: auto;
+  }
+  .name{
+    font-size: 24px; 
+    margin: 10px 0
+  }
+  .para{
+    font-size: 16px
+  }
+  .description{
+    color: gray;
+  }
+  .price{
+    font-weight: bold; 
+    font-size: 20px; 
+    color: #333;
+  }
+  .details-button{
+    display: block; 
+    margin: 20px auto 0; 
+    padding: 8px 16px; 
+    font-size: 16px; 
+    background-color: #000000; 
+    color: white; 
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+
+<div class="container">
+  @for(product of productList ; track product.id){
+  <nz-card class="card">
+    <img 
+    src="{{product.imageURL}}" 
+    alt="{{product.name}}"
+    class="image" />
+    <h1 class="name">{{product.name}}</h1>
+    <p class="para description">{{product.description}}</p>
+    <p class="price">Price: ₹{{product.price}}</p>
+    <p class="para">Category: {{product.category}}</p>
+    <p class="para">Stock: {{product.stockQuantity}} units available</p>
+    <p class="para">Rating: {{product.ratings}} ★</p>
+    <button class="details-button"
+      [routerLink]="['/ecommerce/product',product.id]"
+      >
+      Details
+    </button>
+  </nz-card>
+  }
+</div>

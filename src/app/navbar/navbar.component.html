@@ -1,0 +1,44 @@
+<style>
+  .nav{
+    padding :20px;
+    background-color: rgba(0, 0, 0);
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+  }
+  .nav-item{
+    margin: 0 15px;
+    color: #123231;
+    font-size: 20px;
+    background-color: rgb(236, 200, 255);
+    padding: 10px;
+    border-radius: 50px;
+    transition: box-shadow 0.3s ease;
+  }
+  .nav-item:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+.selected-nav-item{
+  margin: 0 15px;
+    color: #123231;
+    font-size: 20px;
+    background-color: rgb(236, 200, 255);
+    padding: 10px;
+    border-radius: 50px;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+
+}
+
+</style>
+
+<nav class="nav">
+  @for(navItem of navList; track $index){
+    <a 
+    class="nav-item" 
+    [routerLink]="navItem.routing"
+    [ngClass]="{'selected-nav-item': navItem.routing === selectedNav}"
+    (click)="navClick(navItem.routing)"
+    >
+    {{navItem.title}}</a>
+  }
+</nav>

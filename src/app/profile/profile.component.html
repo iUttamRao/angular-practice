@@ -1,0 +1,28 @@
+<style>
+  div{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .loading{
+    text-align: center;
+  }
+</style>
+<div>
+<nz-card style="width:500px;margin:0 auto;background-color: rgb(236, 200, 255);border-radius: 30px;">
+  @if(data[0]){
+  <img [src]="data[0]?.picture.large" alt="" style="border-radius: 50%;display: block; margin: 0 auto" />
+  <h2>Name: {{ data[0]?.name?.title}} {{data[0]?.name?.first}} {{data[0]?.name?.last }}</h2>
+  <h2>Gender: {{ data[0]?.gender | titlecase}}</h2>
+  <h2>Age: {{ data[0]?.dob?.age}}</h2>
+  <h2>Email: {{ data[0]?.email}}</h2>
+  <h2>Phone: {{ data[0]?.phone}}</h2>
+  <h2>Address: {{ data[0]?.location?.street?.number}}, {{data[0]?.location?.street?.name}}, {{data[0]?.location?.city}},
+    {{data[0]?.location?.state}}, {{data[0]?.location?.country}}</h2>
+  }
+  @else{
+  <h2 class="loading">Loading...</h2>
+  }
+</nz-card>
+</div>
